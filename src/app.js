@@ -16,8 +16,13 @@ app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 app.use(express.static("public"));
 app.use(cookieParser());
 
-app.all("*", (req, res) => {
-  res.status(404).send("OOPS!! 404 page not found");
-});
+// app.all("*", (req, res) => {
+//   res.status(404).send("OOPS!! 404 page not found");
+// });
+
+// importing user routers
+import userRouter from "./routes/user.Routes.js";
+
+app.use("/api/v1/user", userRouter);
 
 export { app };
