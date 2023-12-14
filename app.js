@@ -26,4 +26,6 @@ app.all("*", (req, res) => {
   res.status(404).send("OOPS! Page not found");
 });
 
+app.use(errorMiddleware);
+
 export default app;
